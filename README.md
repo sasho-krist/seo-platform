@@ -1,58 +1,129 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SEO Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Уеб приложение за **SEO и AI съдържание**: генериране и управление на блог статии, SEO мета данни, ключови думи, преформулиране на текст, конкурентен анализ по URL и интеграция с WordPress. Включва **REST API** (`/api/v1`) с Laravel Sanctum.
 
-## About Laravel
+**Стек:** Laravel 13, PHP 8.3, Laravel Sanctum, Bootstrap 5, Vite.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Екранни снимки
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Поставете файловете `1.png` … `8.png` в папка `public/images/` (в хранилището те се подават като статични ресурси под `/images/...`).
 
-## Learning Laravel
+| | |
+|---|---|
+| ![Начало](public/images/1.png) | ![Табло](public/images/2.png) |
+| Начало | Табло |
+| ![Блог статии](public/images/3.png) | ![Ключови думи](public/images/4.png) |
+| Блог статии | Ключови думи |
+| ![Преформулиране](public/images/5.png) | ![Конкуренти](public/images/6.png) |
+| Преформулиране | Конкуренти |
+| ![WordPress / настройки](public/images/7.png) | ![Профил / API](public/images/8.png) |
+| WordPress / интеграции | Профил / помощ |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ако някой файл липсва, прегледът в GitHub ще покаже счупена картинка — добавете снимките локално преди push.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Функционалности
 
-## Agentic Development
+- **Блог статии** — създаване и редакция на HTML съдържание; AI чернова по тема и тон; SEO мета (заглавие, описание, focus keyword); експорт (JSON, Markdown, HTML); история на публикации.
+- **Ключови думи** — AI списъци по тема и контекст; връзка към статия; запазени последни генерации.
+- **Преформулиране** — подобряване на текст по зададена инструкция и език (без задължителен запис в база в текущия UI).
+- **Конкуренти** — извличане на видим текст от две URL страници и AI сравнителен анализ; запазени отчети.
+- **WordPress** — запазване на връзка (сайт, потребител, application password) и публикуване на статии към REST API.
+- **Профил** — име, аватар, смяна на парола, изтриване на акаунт.
+- **Публични страници** — условия, поверителност, ЧЗВ, карта на сайта, cookie банер, SEO мета от конфигурация.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
+
+## REST API
+
+- **Базов път:** `/api/v1`
+- **Автентикация:** издайте token с `POST /api/v1/auth/token`, после подавайте заглавка `Authorization: Bearer {token}`.
+- **Ресурси (обобщено):** потребител, табло (статистика), блог статии (CRUD, генериране, SEO, експорт), ключови думи, преформулиране, конкуренти, WordPress връзка и публикуване.
+
+Пълен списък с методи и примери: уеб страницата **API упътване** в приложението (маршрут `/docs/api`, ако е включен) или прегледайте `routes/api.php`.
+
+Имената на маршрутите в кода са с префикс `api.v1.*`, за да не се припокриват с уеб маршрутите.
+
+---
+
+## Изисквания
+
+- PHP **8.3+** с разширения: `openssl`, `pdo`, `mbstring`, `tokenizer`, `xml`, `ctype`, `json`, `fileinfo`
+- Composer 2
+- Node.js **18+** и npm (за Vite / frontend ресурси)
+- База данни: **MySQL** (или съвместима; по подразбиране проектът е настроен към MySQL в `.env.example`)
+
+---
+
+## Клониране
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url> seo_platform
+cd seo_platform
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## Инсталация
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Зависимости и ключ
 
-## Code of Conduct
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2. Конфигурация на `.env`
 
-## Security Vulnerabilities
+- **`APP_NAME`** — в `.env.example` по подразбиране е **SEO Platform** (съвпада с името на продукта).
+- **`APP_URL`** — за коректни линкове и аватари задайте реалния публичен адрес (при WAMP подпапка напр. `http://localhost/seo_platform/public`).
+- **База данни:** `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, при нужда създайте базата ръчно.
+- **OpenAI (за AI функции):** `OPENAI_API_KEY`. По желание: `OPENAI_MODEL`, `OPENAI_API_URL`.
+- **SSL на Windows / локална среда:** при грешка `cURL error 60` може да ползвате `ssl/cacert.pem` и настройки `OPENAI_VERIFY_SSL` / `OPENAI_CACERT`, или изходящи `HTTP_VERIFY_SSL` / `HTTP_CACERT` (виж `.env.example`). За продукция предпочитайте валиден CA bundle, не изключване на проверка.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Миграции, сесии, опашка, storage
 
-## License
+```bash
+php artisan migrate
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Сесиите и кешът по `.env.example` могат да използват базата — след миграции таблиците се създават автоматично.
+
+### 4. Frontend (Vite / Bootstrap)
+
+```bash
+npm install
+npm run build
+```
+
+За разработка: `npm run dev` (и отделно `php artisan serve` или вашият виртуален хост).
+
+### Автоматизирана първоначална настройка
+
+```bash
+composer run setup
+```
+
+Това инсталира Composer и npm зависимости, генерира ключ при липсващ `.env`, изпълнява миграции и `npm run build`. Проверете `.env` преди продукция.
+
+---
+
+## Разработка и качество на кода
+
+```bash
+composer run lint      # Laravel Pint
+composer run analyse   # PHPStan
+composer run test      # PHPUnit
+composer run qa        # lint + analyse + audit + test
+```
+
+---
+
+## Лиценз
+
+Проектът ползва скелета на Laravel под [MIT лиценз](https://opensource.org/licenses/MIT). Допълненията към приложението следват същата рамка, освен ако не е указано друго.
