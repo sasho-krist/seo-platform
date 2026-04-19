@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="seoLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="55%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="seoLogoShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#seoLogoGrad)" filter="url(#seoLogoShadow)"/>
+  <path d="M34 82V38h14v44H34zm22-52h14v52H56V30zm22 18h14v34H78V48zm22-10h14v44h-14V38z" fill="#fff" fill-opacity=".95"/>
+  <circle cx="88" cy="34" r="8" fill="#fff" fill-opacity=".35"/>
+</svg>
