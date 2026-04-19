@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@hasSection('title')@yield('title') · {{ config('app.name') }}@else{{ config('app.name') }}@endif</title>
     @include('partials.seo-meta')
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endif
+    @include('partials.vite-styles')
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 </head>
@@ -41,5 +39,6 @@
     </main>
     @include('partials.site-footer')
     @include('partials.cookie-banner')
+    @include('partials.vite-scripts-footer')
 </body>
 </html>

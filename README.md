@@ -111,6 +111,8 @@ composer run setup
 
 Това инсталира Composer и npm зависимости, генерира ключ при липсващ `.env`, изпълнява миграции и `npm run build`. Проверете `.env` преди продукция.
 
+**Стилове без `npm run build`:** ако липсва папка `public/build/` (не сте пуснали Vite на сървъра), приложението автоматично зарежда Bootstrap от CDN и локален файл `public/css/app-theme.css`. За най-добър резултат и един bundle с JS/CSS препоръчително е **`npm ci && npm run build`** след deploy.
+
 ---
 
 ## Разработка и качество на кода

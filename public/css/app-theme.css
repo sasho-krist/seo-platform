@@ -1,0 +1,183 @@
+/**
+ * Fallback theme when Vite manifest is missing (deploy without npm run build).
+ * Bootstrap must be loaded separately (CDN in layout).
+ * Keep in sync with resources/css/app.css (custom rules only).
+ */
+:root,
+[data-bs-theme='light'] {
+    --bs-primary: #0ea5e9;
+    --bs-primary-rgb: 14, 165, 233;
+    --bs-link-color: #0369a1;
+    --bs-link-hover-color: #0c4a6e;
+    --bs-secondary-color: #475569;
+    --bs-secondary-color-rgb: 71, 85, 105;
+}
+
+body {
+    font-family:
+        'Instrument Sans',
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        sans-serif;
+    background: linear-gradient(180deg, #0369a1 0%, #0284c7 38%, #0ea5e9 72%, #38bdf8 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.app-content-surface {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    box-shadow:
+        0 4px 6px rgba(15, 23, 42, 0.07),
+        0 12px 40px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: #212529;
+}
+
+.app-content-surface .text-secondary {
+    color: #1e293b !important;
+}
+
+.app-content-surface .text-muted {
+    color: #475569 !important;
+}
+
+.app-content-surface .small.text-uppercase.text-primary,
+.app-content-surface .text-uppercase.text-primary.small {
+    color: #0c4a6e !important;
+    font-weight: 600;
+}
+
+.app-content-surface .text-body {
+    color: #212529 !important;
+}
+
+.app-content-surface h1,
+.app-content-surface h2,
+.app-content-surface h3,
+.app-content-surface h4,
+.app-content-surface h5,
+.app-content-surface h6,
+.app-content-surface .h1,
+.app-content-surface .h2,
+.app-content-surface .h3,
+.app-content-surface .h4,
+.app-content-surface .h5,
+.app-content-surface .h6 {
+    color: #0f172a;
+}
+
+.app-strip-on-blue {
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.app-footer-strip {
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    color: #334155;
+}
+
+.app-footer-strip a.link-primary,
+.app-footer-strip a {
+    color: #0c4a6e !important;
+    font-weight: 600;
+}
+
+.app-footer-strip a.link-primary:hover,
+.app-footer-strip a:hover {
+    color: #0c4a6e !important;
+}
+
+.app-footer-strip .text-secondary,
+.app-footer-strip .text-muted,
+.app-footer-strip small {
+    color: #1e293b !important;
+    font-weight: 500;
+}
+
+.app-nav-section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: #334155 !important;
+    font-weight: 600;
+}
+
+.app-sidebar {
+    color: #0f172a;
+    --bs-nav-link-color: #0f172a;
+    --bs-nav-link-hover-color: #020617;
+    --bs-heading-color: #0f172a;
+}
+
+.app-sidebar .nav-pills .nav-link {
+    color: #0f172a !important;
+    font-weight: 500;
+}
+
+.app-sidebar .nav-pills .nav-link:hover,
+.app-sidebar .nav-pills .nav-link:focus {
+    color: #020617 !important;
+}
+
+.app-sidebar .nav-pills .nav-link.active {
+    background-color: rgba(3, 105, 161, 0.12) !important;
+    color: #075985 !important;
+    font-weight: 600;
+}
+
+.app-sidebar-email {
+    color: #334155 !important;
+    font-weight: 500;
+}
+
+.app-sidebar-brand-title {
+    color: #0c4a6e;
+    font-weight: 600;
+}
+
+.app-sidebar .text-muted {
+    color: #64748b !important;
+}
+
+.app-mobile-nav a.text-body,
+.app-mobile-nav a:not(.text-primary) {
+    color: #1e293b !important;
+}
+
+.app-mobile-nav a.fw-bold.text-primary {
+    color: #0369a1 !important;
+}
+
+.article-body h2 {
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.article-body ul {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.cookie-banner {
+    z-index: 1046;
+}
+
+html.cookie-banner-visible body {
+    padding-bottom: 7rem;
+}
+
+@media (min-width: 768px) {
+    html.cookie-banner-visible body {
+        padding-bottom: 5rem;
+    }
+}
